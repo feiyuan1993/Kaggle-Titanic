@@ -25,6 +25,5 @@ stacked <- stacked %>%
 age_impute <- stacked %>%
   filter(!is.na(Age))
 
-missing_ages <- stacked %>%
-  filter(is.na(Age))
+
 
