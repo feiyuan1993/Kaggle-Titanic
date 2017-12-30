@@ -37,18 +37,3 @@ survival_class <- training %>%
 survival_class <- training %>%
   group_by(Pclass, Cabin) %>%
   summarize(count = n())
-
-### Clean Data
-# Create family name variable
-stacked <- stacked %>%
-  mutate(Family_Name = sapply(Name, function(x) str_split(x, ",")[[1]][1]))
-
-# Impute missing ages
-age_impute <- stacked %>%
-  filter(!is.na(Age))
-
-missing_ages <- stacked %>%
-  filter(is.na(Age))
-
-#### Models
-## Logistic regression
